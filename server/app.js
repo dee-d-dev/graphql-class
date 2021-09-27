@@ -1,77 +1,16 @@
 const { ApolloServer, gql } = require("apollo-server");
+const typeDefs = require("./schema");
+const Query = require("./resolvers/Query");
+const Mutation = require("./resolvers/Mutation");
+const Animal = require("./resolvers/Animal");
+const Category = require("./resolvers/Category");
 const { mainCards, animals, categories } = require("./db");
 
-const typeDefs = gql`
-  type MainCard {
-    title: String!
-    image: String!
-  }
-
-  type Animal {
-    id: ID!
-    title: String!
-    image: String!
-    rating: Float
-    pricing: String!
-    description: [String!]!
-    stock: Int!
-    slug: String!
-    onSale: Boolean
-    category: Category
-  }
-
-  type Category {
-    id: ID!
-    image: String!
-    category: String!
-    slug: String!
-    animals: [Animal!]!
-  }
-
-  type Query {
-    mainCards: [MainCard]
-    animals: [Animal]
-    animal(slug: String): Animal
-    categories: [Category!]!
-    category(slug: String): Category!
-  }
-`;
-
-const resolvers = {
-  Query: {
-    mainCards: () => mainCards,
-    animals: () => animals,
-    animal: (parent, args, ctc) => {
-      let animal = animals.find((animal) => {
-        return animal.slug === args.slug;
-      });
-      return animal;
-    },
-    categories: () => categories,
-    category: (parent, args, ctx) => {
-      let category = categories.find((category) => {
-        return category.slug === args.slug;
-      });
-
-      return category;
-    },
-  },
-  Category: {
-    animals: (parent, args, ctx) => {
-      return animals.filter((animal) => {
-        return animal.category === parent.id;
-      });
-    },
-  },
-
-  Animal: {
-    category: (parent, args, ctx) => {
-      console.log(parent);
-    },
-  },
-};
-
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers: { Query, Animal, Category, Mutation },
+  context: { mainCards, animals, categories },
+});
 
 // The `listen` method launches a web server.
 server.listen().then(({ url }) => {

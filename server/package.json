@@ -7,5 +7,9 @@
     "start": "nodemon app"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.12"
+  }
 }
