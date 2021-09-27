@@ -151,7 +151,35 @@ const animals = [
   },
 ];
 
+const categories = [
+  {
+    id: "1",
+    image: "tiger",
+    category: "cats",
+    slug: "cats",
+  },
+  {
+    id: "2",
+    image: "snake",
+    category: "reptiles",
+    slug: "reptiles",
+  },
+  {
+    id: "3",
+    image: "shark",
+    category: "ocean creatures",
+    slug: "ocean creatures",
+  },
+  {
+    id: "4",
+    image: "donkey",
+    category: "mammals",
+    slug: "mammals",
+  },
+];
+
 module.exports = {
-    animals,
-    mainCards
-}
+  animals,
+  mainCards,
+  categories,
+};
