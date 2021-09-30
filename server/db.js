@@ -166,7 +166,7 @@ const categories = [
   },
   {
     id: "3",
-    image: "shark",
+    image: "stingray",
     category: "ocean creatures",
     slug: "ocean creatures",
   },
