@@ -23,10 +23,6 @@ function CategoryDisplay() {
     return <div>Loading...</div>;
   }
 
-  if (data) {
-    console.log(data);
-  }
-
   if (error) {
     return <div>Error oh... Error</div>;
   }
