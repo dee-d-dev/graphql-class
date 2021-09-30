@@ -1,7 +1,7 @@
 const Animal = {
   category: (parent, args, { categories }) => {
-    categories.find((category) => {
-      category.id === parent.category;
+    return categories.find((category) => {
+      return category.id === parent.category;
     });
   },
 };

@@ -1,15 +1,15 @@
 const mainCards = [
   {
     title: "Recently reviewed",
-    image: "Lion",
+    image: "lion",
   },
   {
     title: "Looking for a gift",
-    image: "Penguin",
+    image: "penguin",
   },
   {
     title: "Best behaved",
-    image: "Cat",
+    image: "cat",
   },
 ];
 
