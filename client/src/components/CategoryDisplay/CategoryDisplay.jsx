@@ -13,6 +13,7 @@ const FETCH_CATEGORY = gql`
       id
       image
       category
+      slug
     }
   }
 `;

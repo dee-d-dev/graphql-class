@@ -40,7 +40,7 @@ const typeDefs = gql`
       title: String!
       image: String!
       rating: Float
-      pricing: String!
+      price: String!
       description: [String!]!
       stock: Int!
       slug: String!
